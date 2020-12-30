@@ -123,6 +123,7 @@ public class StatusBarKeyguardViewManager implements RemoteInputController.Callb
         @Override
         public void onFullyShown() {
             updateStates();
+            onKeyguardBouncerFullyShownChanged(true);
         }
 
         @Override
