@@ -742,7 +742,7 @@ GLuint linkShader(GLuint vertexShader, GLuint fragmentShader) {
 }
 
 void BootAnimation::initShaders() {
-    bool dynamicColoringEnabled = mAnimation != nullptr && mAnimation->dynamicColoringEnabled;
+    bool dynamicColoringEnabled = false;
     GLuint vertexShader = compileShader(GL_VERTEX_SHADER, (const GLchar *)VERTEX_SHADER_SOURCE);
     GLuint imageFragmentShader =
         compileShader(GL_FRAGMENT_SHADER, dynamicColoringEnabled
@@ -778,13 +778,7 @@ bool BootAnimation::threadLoop() {
     bool result;
     initShaders();
 
-    // We have no bootanimation file, so we use the stock android logo
-    // animation.
-    if (mZipFileName.isEmpty()) {
-        result = android();
-    } else {
-        result = movie();
-    }
+    result = android();
 
     mCallbacks->shutdown();
     eglMakeCurrent(mDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
