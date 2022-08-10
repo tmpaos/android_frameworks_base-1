@@ -303,7 +303,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener, Dump
         }
 
         if (mScrimBehind != null) {
-            mCustomScrimAlpha = 0.7f;
+            mCustomScrimAlpha = 0.8f;
         }
         final ScrimState[] states = ScrimState.values();
         for (int i = 0; i < states.length; i++) {
